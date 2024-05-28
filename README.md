@@ -1,6 +1,7 @@
 # `jupyterlab-hide-code`: A Button in JupyterLab to Run and Hide Code
 
 [![Github Actions Status](https://github.com/osscar-org/jupyterlab-hide-code/workflows/Build/badge.svg)](https://github.com/osscar-org/jupyterlab-hide-code/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/osscar-org/jupyterlab-hide-code/main?urlpath=lab)
+
 A button in JupyterLab to run the code cells and then to hide the code cells.
 
 ## Requirements
