@@ -4,7 +4,7 @@
 
 A button in JupyterLab to run the code cells and then to hide the code cells.
 
-![demo][./binder/demo.gif]
+![demo](./binder/demo.gif)
 
 ## Requirements
 
