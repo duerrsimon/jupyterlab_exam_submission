@@ -4,6 +4,8 @@
 
 A button in JupyterLab to run the code cells and then to hide the code cells.
 
+![demo][./binder/demo.gif]
+
 ## Requirements
 
 - JupyterLab >= 4.0.0
