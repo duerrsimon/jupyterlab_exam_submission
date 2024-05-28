@@ -5,7 +5,8 @@
   "keywords": [
     "jupyter",
     "jupyterlab",
-    "jupyterlab-extension"
+    "jupyterlab-extension",
+    "osscar"
   ],
   "homepage": "https://github.com/osscar-org/jupyterlab-hide-code",
   "bugs": {
