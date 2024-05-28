@@ -96,7 +96,6 @@ More information are provided within the [ui-tests](./ui-tests/README.md) README
 
 See [RELEASE](RELEASE.md)
 
-
 ## Acknowledgements
 
 We acknowledge support from the EPFL Open Science Fund via the [OSSCAR](http://www.osscar.org) project.

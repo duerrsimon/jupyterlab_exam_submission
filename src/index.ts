@@ -19,13 +19,13 @@ import {
 
 import '../style/index.css';
 
-
 /**
  * Initialization data for the jupyterlab_hide_code extension.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab_hide_code:plugin',
-  description: 'A button in JupyterLab to run the code cells and then to hide the code cells.',
+  description:
+    'A button in JupyterLab to run the code cells and then to hide the code cells.',
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
     app.docRegistry.addWidgetExtension('Notebook', new ButtonExtension());
