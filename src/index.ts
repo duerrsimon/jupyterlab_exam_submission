@@ -5,12 +5,10 @@ import {
 
 import { IDisposable, DisposableDelegate } from '@lumino/disposable';
 
-import { PanelLayout } from '@lumino/widgets';
-
-import { ToolbarButton } from '@jupyterlab/apputils';
-
 import { DocumentRegistry } from '@jupyterlab/docregistry';
 
+import { PanelLayout } from '@lumino/widgets';
+// import { ToolbarButton } from '@jupyterlab/apputils';
 import {
   NotebookActions,
   NotebookPanel,
@@ -28,64 +26,61 @@ const plugin: JupyterFrontEndPlugin<void> = {
     'A button in JupyterLab to run the code cells and then to hide the code cells.',
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
-    app.docRegistry.addWidgetExtension('Notebook', new ButtonExtension());
-    console.log('JupyterLab extension jupyterlab_hide_code is activated!');
+    app.docRegistry.addWidgetExtension('Notebook', new HideCodeExtension());
+    console.log('JupyterLab extension jupyterlab_hide_code_auto is activated!');
   }
 };
 
-export class ButtonExtension
+export class HideCodeExtension
   implements DocumentRegistry.IWidgetExtension<NotebookPanel, INotebookModel>
 {
   createNew(
     panel: NotebookPanel,
     context: DocumentRegistry.IContext<INotebookModel>
   ): IDisposable {
-    const hideInputCode = () => {
+    const hideTaggedCode = () => {
+      console.log('Running all cells...');
+     
       NotebookActions.runAll(panel.content, context.sessionContext);
+      
+      
+        console.log('All cells executed. Hiding tagged code cells...');
+        panel.content.widgets.forEach(cell => {
+          console.log(cell)
+          if (cell.model.type === 'code') {
+            const tags = (cell.model.metadata['tags'] || []) as string[];
+            if (Array.isArray(tags) && tags.includes('hide_code')) {
+              const layout = cell.layout as PanelLayout;
+              layout.widgets[1].hide();
+            }
 
-      panel.content.widgets.forEach(cell => {
-        if (cell.model.type === 'code') {
-          const layout = cell.layout as PanelLayout;
-          layout.widgets[1].hide();
-        }
-      });
-      buttonHideInput.hide();
-      buttonShowInput.show();
-    };
-    const showInputCode = () => {
-      panel.content.widgets.forEach(cell => {
-        if (cell.model.type === 'code') {
-          const layout = cell.layout as PanelLayout;
-          layout.widgets[1].show();
-        }
-      });
-
-      buttonHideInput.show();
-      buttonShowInput.hide();
+             if (Array.isArray(tags) && tags.includes('hide_output')) {
+              const layout = cell.layout as PanelLayout;
+              layout.widgets[3].hide();
+            }
+          }
+        });
     };
 
-    const buttonHideInput = new ToolbarButton({
-      className: 'myButton',
-      iconClass: 'fa fa-sm fa-eye-slash fontawesome-colors',
-      onClick: hideInputCode,
-      tooltip: 'Hide Input'
-    });
 
-    const buttonShowInput = new ToolbarButton({
-      className: 'myButton',
-      iconClass: 'fa fa-sm fa-eye fontawesome-colors',
-      onClick: showInputCode,
-      tooltip: 'Show Input'
-    });
+    Promise.resolve(panel.context.sessionContext.ready).then(() => {
+  console.log('Session ready. Hiding tagged code cells...');
+  hideTaggedCode();
+});
 
-    buttonShowInput.hide();
+    // const buttonHideInput = new ToolbarButton({
+    //   className: 'myButton',
+    //   iconClass: 'fa fa-sm fa-graduation-cap fontawesome-colors',
+    //   label: 'Initialize Exam',
+    //   onClick: hideTaggedCode,
+    //   tooltip: 'Hide Input'
+    // });
 
-    panel.toolbar.insertItem(11, 'hideInput', buttonHideInput);
-    panel.toolbar.insertItem(11, 'showInput', buttonShowInput);
+
+    // panel.toolbar.insertItem(11, 'hideInput', buttonHideInput);
 
     return new DisposableDelegate(() => {
-      buttonHideInput.dispose();
-      buttonShowInput.dispose();
+      // buttonHideInput.dispose();
     });
   }
 }
