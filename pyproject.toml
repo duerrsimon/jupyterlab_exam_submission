@@ -3,7 +3,7 @@ requires = ["hatchling>=1.5.0", "jupyterlab>=4.0.0,<5", "hatch-nodejs-version"]
 build-backend = "hatchling.build"
 
 [project]
-name = "jupyterlab_hide_code"
+name = "jupyterlab_exam_submission"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
@@ -35,24 +35,24 @@ allow-direct-references = true
 fields = ["description", "authors", "urls"]
 
 [tool.hatch.build.targets.sdist]
-artifacts = ["jupyterlab_hide_code/labextension"]
+artifacts = ["jupyterlab_exam_submission/labextension"]
 exclude = [".github", "binder"]
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyterlab_hide_code/labextension" = "share/jupyter/labextensions/jupyterlab_hide_code"
-"install.json" = "share/jupyter/labextensions/jupyterlab_hide_code/install.json"
+"jupyterlab_exam_submission/labextension" = "share/jupyter/labextensions/jupyterlab_exam_submission"
+"install.json" = "share/jupyter/labextensions/jupyterlab_exam_submission/install.json"
 
 [tool.hatch.build.hooks.version]
-path = "jupyterlab_hide_code/_version.py"
+path = "jupyterlab_exam_submission/_version.py"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.5"]
 build-function = "hatch_jupyter_builder.npm_builder"
 ensured-targets = [
-    "jupyterlab_hide_code/labextension/static/style.js",
-    "jupyterlab_hide_code/labextension/package.json",
+    "jupyterlab_exam_submission/labextension/static/style.js",
+    "jupyterlab_exam_submission/labextension/package.json",
 ]
-skip-if-exists = ["jupyterlab_hide_code/labextension/static/style.js"]
+skip-if-exists = ["jupyterlab_exam_submission/labextension/static/style.js"]
 
 [tool.hatch.build.hooks.jupyter-builder.build-kwargs]
 build_cmd = "build:prod"
@@ -62,7 +62,7 @@ npm = ["jlpm"]
 build_cmd = "install:extension"
 npm = ["jlpm"]
 source_dir = "src"
-build_dir = "jupyterlab_hide_code/labextension"
+build_dir = "jupyterlab_exam_submission/labextension"
 
 [tool.jupyter-releaser.options]
 version_cmd = "hatch version"

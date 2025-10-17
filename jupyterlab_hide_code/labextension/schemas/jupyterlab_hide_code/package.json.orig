@@ -1,5 +1,5 @@
 {
-  "name": "jupyterlab_exam_submission",
+  "name": "jupyterlab_hide_code",
   "version": "4.0.0",
   "description": "A button in JupyterLab to run the code cells and then to hide the code cells.",
   "keywords": [
@@ -8,14 +8,14 @@
     "jupyterlab-extension",
     "osscar"
   ],
-  "homepage": "https://github.com/duerrsimon/jupyterlab-exam-submission",
+  "homepage": "https://github.com/osscar-org/jupyterlab-exam-submission",
   "bugs": {
-    "url": "https://github.com/duerrsimon/jupyterlab-exam-submission/issues"
+    "url": "https://github.com/osscar-org/jupyterlab-exam-submission/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
-    "name": "Simon Dürr",
-    "email": "dev@simonduerr.eu"
+    "name": "Dou Du",
+    "email": "dou.du@icloud.com"
   },
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
@@ -27,7 +27,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/duerrsimon/jupyterlab-exam-submission.git"
+    "url": "https://github.com/osscar-org/jupyterlab-exam-submission.git"
   },
   "workspaces": [
     "ui-tests"
@@ -42,7 +42,7 @@
     "clean": "jlpm clean:lib",
     "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
     "clean:lintcache": "rimraf .eslintcache .stylelintcache",
-    "clean:labextension": "rimraf jupyterlab_exam_submission/labextension jupyterlab_exam_submission/_version.py",
+    "clean:labextension": "rimraf jupyterlab_hide_code/labextension jupyterlab_hide_code/_version.py",
     "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
     "eslint": "jlpm eslint:check --fix",
     "eslint:check": "eslint . --cache --ext .ts,.tsx",
@@ -99,7 +99,7 @@
   },
   "jupyterlab": {
     "extension": true,
-    "outputDir": "jupyterlab_exam_submission/labextension",
+    "outputDir": "jupyterlab_hide_code/labextension",
     "schemaDir": "schema"
   },
   "eslintIgnore": [

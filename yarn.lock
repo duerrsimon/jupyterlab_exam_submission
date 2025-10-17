@@ -8059,18 +8059,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jupyterlab_hide_code-ui-tests@workspace:ui-tests":
+"jupyterlab_exam_submission-ui-tests@workspace:ui-tests":
   version: 0.0.0-use.local
-  resolution: "jupyterlab_hide_code-ui-tests@workspace:ui-tests"
+  resolution: "jupyterlab_exam_submission-ui-tests@workspace:ui-tests"
   dependencies:
     "@jupyterlab/galata": ^5.0.0
     "@playwright/test": ^1.32.0
   languageName: unknown
   linkType: soft
 
-"jupyterlab_hide_code@workspace:.":
+"jupyterlab_exam_submission@workspace:.":
   version: 0.0.0-use.local
-  resolution: "jupyterlab_hide_code@workspace:."
+  resolution: "jupyterlab_exam_submission@workspace:."
   dependencies:
     "@jupyterlab/application": ^4.0.0
     "@jupyterlab/builder": ^4.1.0

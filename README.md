@@ -1,14 +1,7 @@
-# `jupyterlab-hide-code`: A Button in JupyterLab to Run and Hide Code
+# `jupyterlab-exam-submission`: Automatically hide code and/or output cells after running them
 
-[![Github Actions Status](https://github.com/osscar-org/jupyterlab-hide-code/workflows/Build/badge.svg)](https://github.com/osscar-org/jupyterlab-hide-code/actions/workflows/build.yml)
 
-A button in JupyterLab to run the code cells and then to hide the code cells.
-
-![demo](./binder/demo.gif)
-
-## Try it with Binder
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/osscar-org/jupyterlab-hide-code/main?urlpath=lab)
+I wanted to allow students to use jupyter-lite to write computational exams. For this I made some logic that allows students to upload their notebooks to an endpoint with a unique token. However, I did not want students to see the logic behind this so this extension automatically runs all code cells once and hides the ones tagged with `hide_code`. If the tag `hide_output` is used, the output of the cell is also hidden.
 
 ## Requirements
 
@@ -16,23 +9,7 @@ A button in JupyterLab to run the code cells and then to hide the code cells.
 
 ## Install
 
-To install the extension, execute:
-
-```bash
-pip install jupyterlab_hide_code
-```
-
-## Uninstall
-
-To remove the extension, execute:
-
-```bash
-pip uninstall jupyterlab_hide_code
-```
-
-## Contributing
-
-### Development install
+To install the extension, use Development install
 
 Note: You will need NodeJS to build the extension package.
 
@@ -42,7 +19,7 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the jupyterlab_hide_code directory
+# Change directory to the jupyterlab_exam_submission directory
 # Install package in development mode
 pip install -e "."
 # Link your development version of the extension with JupyterLab
@@ -68,16 +45,6 @@ By default, the `jlpm build` command generates the source maps for this extensio
 jupyter lab build --minimize=False
 ```
 
-### Development uninstall
-
-```bash
-pip uninstall jupyterlab_hide_code
-```
-
-In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
-command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
-folder is located. Then you can remove the symlink named `jupyterlab_hide_code` within that folder.
-
 ### Testing the extension
 
 #### Frontend tests
@@ -91,19 +58,10 @@ jlpm
 jlpm test
 ```
 
-#### Integration tests
 
-This extension uses [Playwright](https://playwright.dev) for the integration tests (aka user level tests).
-More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
-
-More information are provided within the [ui-tests](./ui-tests/README.md) README.
-
-### Packaging the extension
-
-See [RELEASE](RELEASE.md)
 
 ## Acknowledgements
 
-We acknowledge support from the EPFL Open Science Fund via the [OSSCAR](http://www.osscar.org) project.
+Built on top of the excellent work by [OSSCAR Team](https://www.osscar.org) for their jupyterlab-exam-submission extension.
 
-<img src='https://www.osscar.org/_images/logos.png' width='1200'>
+

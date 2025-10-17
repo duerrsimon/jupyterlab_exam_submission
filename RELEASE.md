@@ -1,4 +1,4 @@
-# Making a new release of jupyterlab_hide_code
+# Making a new release of jupyterlab_exam_submission
 
 The extension can be published to `PyPI` and `npm` manually or using the [Jupyter Releaser](https://github.com/jupyter-server/jupyter_releaser).
 

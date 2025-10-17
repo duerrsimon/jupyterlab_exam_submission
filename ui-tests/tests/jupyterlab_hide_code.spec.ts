@@ -17,7 +17,7 @@ test('should emit an activation console message', async ({ page }) => {
 
   expect(
     logs.filter(
-      s => s === 'JupyterLab extension jupyterlab_hide_code is activated!'
+      s => s === 'JupyterLab extension jupyterlab_exam_submission is activated!'
     )
   ).toHaveLength(1);
 });

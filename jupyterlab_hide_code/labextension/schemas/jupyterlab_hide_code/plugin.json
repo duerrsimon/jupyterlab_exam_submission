@@ -1,7 +1,7 @@
 {
   "jupyter.lab.shortcuts": [],
-  "title": "jupyterlab_exam_submission",
-  "description": "jupyterlab_exam_submission settings.",
+  "title": "jupyterlab_hide_code",
+  "description": "jupyterlab_hide_code settings.",
   "type": "object",
   "properties": {},
   "additionalProperties": false

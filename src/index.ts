@@ -18,16 +18,16 @@ import {
 import '../style/index.css';
 
 /**
- * Initialization data for the jupyterlab_hide_code extension.
+ * Initialization data for the jupyterlab_exam_submission extension.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab_hide_code:plugin',
+  id: 'jupyterlab_exam_submission:plugin',
   description:
     'A button in JupyterLab to run the code cells and then to hide the code cells.',
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
     app.docRegistry.addWidgetExtension('Notebook', new HideCodeExtension());
-    console.log('JupyterLab extension jupyterlab_hide_code_auto is activated!');
+    console.log('JupyterLab extension jupyterlab_exam_submission_auto is activated!');
   }
 };
 

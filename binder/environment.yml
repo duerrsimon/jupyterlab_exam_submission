@@ -1,10 +1,10 @@
-# a mybinder.org-ready environment for demoing jupyterlab_hide_code
+# a mybinder.org-ready environment for demoing jupyterlab_exam_submission
 # this environment may also be used locally on Linux/MacOS/Windows, e.g.
 #
 #   conda env update --file binder/environment.yml
-#   conda activate jupyterlab-hide-code-demo
+#   conda activate jupyterlab-exam-submission-demo
 #
-name: jupyterlab-hide-code-demo
+name: jupyterlab-exam-submission-demo
 
 channels:
   - conda-forge
