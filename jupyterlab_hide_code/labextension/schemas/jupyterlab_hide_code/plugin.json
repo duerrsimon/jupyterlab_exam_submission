@@ -1,8 +1,0 @@
-{
-  "jupyter.lab.shortcuts": [],
-  "title": "jupyterlab_hide_code",
-  "description": "jupyterlab_hide_code settings.",
-  "type": "object",
-  "properties": {},
-  "additionalProperties": false
-}

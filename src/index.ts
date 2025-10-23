@@ -10,10 +10,12 @@ import { DocumentRegistry } from '@jupyterlab/docregistry';
 import { PanelLayout } from '@lumino/widgets';
 // import { ToolbarButton } from '@jupyterlab/apputils';
 import {
-  NotebookActions,
+  // NotebookActions,
   NotebookPanel,
   INotebookModel
 } from '@jupyterlab/notebook';
+
+import { CodeCell } from '@jupyterlab/cells';
 
 import '../style/index.css';
 
@@ -41,15 +43,18 @@ export class HideCodeExtension
     const hideTaggedCode = () => {
       console.log('Running all cells...');
      
-      NotebookActions.runAll(panel.content, context.sessionContext);
+      // NotebookActions.runAll(panel.content, context.sessionContext);
       
       
-        console.log('All cells executed. Hiding tagged code cells...');
+        // console.log('All cells executed. Hiding tagged code cells...');
         panel.content.widgets.forEach(cell => {
-          console.log(cell)
           if (cell.model.type === 'code') {
             const tags = (cell.model.metadata['tags'] || []) as string[];
             if (Array.isArray(tags) && tags.includes('hide_code')) {
+              
+              console.log("running code cell with hide_code tag");
+              CodeCell.execute((cell as CodeCell), panel.sessionContext);
+
               const layout = cell.layout as PanelLayout;
               layout.widgets[1].hide();
             }
